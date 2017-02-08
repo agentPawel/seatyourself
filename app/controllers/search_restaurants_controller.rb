@@ -1,0 +1,2 @@
+class SearchRestaurantsController < ApplicationController
+end
