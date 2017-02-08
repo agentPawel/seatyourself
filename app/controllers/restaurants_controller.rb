@@ -1,4 +1,10 @@
 class RestaurantsController < ApplicationController
+  def index
+    @date = params[:date]
+    @time = params[:time]
+    @party_size = params[:party_size]
+  end
+
   def new
     @restaurant = Restaurant.new
   end
@@ -9,6 +15,7 @@ class RestaurantsController < ApplicationController
       redirect_to "http://localhost:3000"
     else
       render "new"
+    end
   end
 
   def show

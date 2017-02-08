@@ -1,22 +1,15 @@
 <h1>Search reservations</h1>
 
-<form class="search_restaurants" action="/search_restaurants/news" accept-charset="UTF-8" method="get">
-  <p>
-    <label for="date">Date</label>
-    <input type="date" min="<%= Time.now.day %>" name="job_application[full_name]" id="job_application_full_name" />
-  </p>
-
- <p>
-    <label for="time">Time</label>
-    <input type="time" min="<%= Time.now %>" name="job_application[phone]" id="job_application_phone" />
-  </p>
-
- <p>
-    <label for="party_size">Party size</label>
-    <input type="integer" min=1 name="job_application[hobby]" id="job_application_hobby" />
-  </p>
-
- <p>
-    <input type="submit" name="commit" value="Search!!!" />
-  </p>
-</form>
+<%= form_tag  restaurants_path, method: "get" do |f| %>
+  <div class="field">
+    <%= date_field :date, min:Time.now.day %><br/>
+  </div>
+  <div class="field">
+    <%= time_field :time, min:Time.now %><br/>
+  </div>
+  <div class="field">
+    <%= label_tag :party_size %><br/>
+    <%= number_field_tag :party_size, params[:party_size] %>
+  </div>
+  <div class="actions"><%= submit_tag "Search!" %></div>
+<% end %>

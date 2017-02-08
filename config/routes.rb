@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # root 'users#index'
   resources :reservations
+  resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :restaurants
   resource :search_restaurants
