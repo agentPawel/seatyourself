@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'restaurants/new'
+
+  get 'restaurants/create'
+
+  get 'restaurants/show'
+
   # root 'users#index'
   resources :reservations
   resources :users, only: [:new, :create]
+  resources :restaurants
 
 
 
