@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0 0;
+  list-style-type: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  background-color: black;
+  text-align: center;
+  height: 60px;
+}
+
+.navbar img {
+  width: 60px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.container {
+  height: 50%;
+  background-image: url(https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg);
+  background-size: cover;
+  background-color: white;
+}
+
+.mainbody {
+  padding-top: 10%;
+  text-align: center;
+
+}
