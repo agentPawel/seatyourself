@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#res1 = Reservation.new(date:"2017-08-08", time:1300, party_size:4, restaurant_id:1, user_id:1)
