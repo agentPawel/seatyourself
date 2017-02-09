@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
-      @date = params[:date]
+      @date = params[:date].to_s
       time = params[:time].to_s
       @time = time[0..1].to_i
       @party_size = params[:party_size].to_i
@@ -9,8 +9,8 @@ class RestaurantsController < ApplicationController
       @valid_restaurants = []
 
       Restaurant.all.each do |restaurant|
-        @capacity_taken = 0
-        @capacity_taken += Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size)
+    
+        @capacity_taken = Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size)
         if @party_size <= (restaurant.capacity - @capacity_taken)
           @valid_restaurants << restaurant
         end
@@ -39,3 +39,6 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name,:location, :description, :category, :capacity)
   end
 end
+
+
+#Test: Reservation.where(date: "2017-08-08", time: 13, restaurant_id: 1).sum(:party_size)
