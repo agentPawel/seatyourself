@@ -1,8 +1,9 @@
 class RestaurantsController < ApplicationController
   def index
-    @date = params[:date]
-    @time = params[:time]
-    @party_size = params[:party_size]
+      @date = params[:date]
+      time = params[:time].to_s
+      @time = time[0..1].to_i
+      @party_size = params[:party_size]
   end
 
   def new

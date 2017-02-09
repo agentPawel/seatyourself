@@ -2,14 +2,14 @@
 
 <%= form_tag  restaurants_path, method: "get" do |f| %>
   <div class="field">
-    <%= date_field :date, min:Time.now.day %><br/>
+    <%= date_field_tag :date %><br/>
   </div>
   <div class="field">
-    <%= time_field :time, min:Time.now %><br/>
+    <%= time_field_tag :time %><br/>
   </div>
   <div class="field">
     <%= label_tag :party_size %><br/>
-    <%= number_field_tag :party_size, params[:party_size] %>
+    <%= number_field_tag :party_size %>
   </div>
   <div class="actions"><%= submit_tag "Search!" %></div>
 <% end %>
