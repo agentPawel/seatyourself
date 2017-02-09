@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
       session[:current_res_date] = params[:date].to_s
       #@date = params[:date].to_s
 
-      session[:current_res_time] = params[:time][0..1].to_i
+      session[:current_res_time] = params[:time]
       #time = params[:time].to_s
       #@time = time[0..1].to_i
       session[:party_size] = params[:party_size].to_i
