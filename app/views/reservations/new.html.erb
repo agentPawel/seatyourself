@@ -6,12 +6,12 @@ Time:<%= session[:current_res_time] %><br>
 Party Size:<%= session[:party_size] %><br>
 
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for @reservation do |f| %>
+  <% if @reservation.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% @user.errors.full_messages.each do |message| %>
+        <% @reservation.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -20,7 +20,7 @@ Party Size:<%= session[:party_size] %><br>
 
  <div class="field">
     <%= f.label :email %><br/>
-    <%= f.text_field :email %>
+    <%= f.string :email %>
   </div>
 
  <div class="field">
