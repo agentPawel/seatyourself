@@ -4,9 +4,7 @@ class RestaurantsController < ApplicationController
       time = params[:time].to_s
       @time = time[0..1].to_i
       @party_size = params[:party_size].to_i
-      session[:current_res_date] = @date
-      session[:current_res_time] = @time
-      session[:current_party_size] = @party_size 
+
 
       # Sum's # of reservations for a particular time and date
       @valid_restaurants = []
