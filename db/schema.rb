@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207184318) do
+ActiveRecord::Schema.define(version: 20170209001109) do
 
   create_table "reservations", force: :cascade do |t|
-    t.time     "time"
+    t.integer  "time"
     t.date     "date"
     t.integer  "user_id"
     t.integer  "restaurant_id"
