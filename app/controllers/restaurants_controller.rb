@@ -7,10 +7,10 @@ class RestaurantsController < ApplicationController
 
       # Sum's # of reservations for a particular time and date
       @valid_restaurants = []
-      @capacity_taken = 0
+
       Restaurant.all.each do |restaurant|
+        @capacity_taken = 0
         @capacity_taken += Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size)
-        @restaurant_name = restaurant.name
         if @party_size <= (restaurant.capacity - @capacity_taken)
           @valid_restaurants << restaurant
         end
