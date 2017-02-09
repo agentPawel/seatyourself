@@ -3,7 +3,18 @@ class RestaurantsController < ApplicationController
       @date = params[:date]
       time = params[:time].to_s
       @time = time[0..1].to_i
-      @party_size = params[:party_size]
+      @party_size = params[:party_size].to_i
+
+      # Sum's # of reservations for a particular time and date
+      @valid_restaurants = []
+      @capacity_taken = 0
+      Restaurant.all.each do |restaurant|
+        @capacity_taken += Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size)
+        @restaurant_name = restaurant.name
+        if @party_size <= (restaurant.capacity - @capacity_taken)
+          @valid_restaurants << restaurant
+        end
+      end
   end
 
   def new
