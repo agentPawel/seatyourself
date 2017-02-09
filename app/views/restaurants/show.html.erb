@@ -5,6 +5,9 @@
 <% session[:restaurant_id] = @restaurant.id %>
 <% session[:restaurant_name] = @restaurant.name %>
 
+<% session[:capacity_left] = (@restaurant.capacity - Reservation.where(date: session[:current_res_date],
+time: session[:current_res_time], restaurant_id: @restaurant.id).sum(:party_size)) %>
+
 Name:
 <%= @restaurant.name %>
 <br>
