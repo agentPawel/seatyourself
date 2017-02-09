@@ -1,2 +1,18 @@
-<%= link_to "Back to Restaurants", restaurants_url %>
-<p><%= @restaurant.name %>, <%= @restaurant.location %> <%= @restaurant.description %></p>
+
+
+<h1>Make a reservation at <%=@restaurant.name%>! </h1>
+
+
+Name:
+<%= @restaurant.name %>
+<br>
+Location:
+<%= @restaurant.location %>
+<br>
+Description:
+<%= @restaurant.description %>
+<br>
+<br>
+</div>
+
+<%= link_to "Back to Search", new_search_restaurants_path %>

@@ -14,6 +14,9 @@ Restaurant Max Capacity:<%= restaurant.capacity %> <br><br>
 Restaurant Capacity Taken: <%= Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size) %> <br><br>
 Restaurant Capacity Left: <%= (restaurant.capacity - Reservation.where(date: @date, time: @time, restaurant_id: restaurant.id).sum(:party_size)) %> <br><br>
 
+<div class="button_bar">
+  <%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"  %>
+</div>
 <br>
 <br>
 <br>
