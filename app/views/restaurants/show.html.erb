@@ -2,6 +2,8 @@
 
 <h1>Make a reservation at <%=@restaurant.name%>! </h1>
 
+<% session[:restaurant_id] = @restaurant.id %>
+<% session[:restaurant_name] = @restaurant.name %>
 
 Name:
 <%= @restaurant.name %>

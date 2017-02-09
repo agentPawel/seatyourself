@@ -5,6 +5,15 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.time = session[:current_res_time]
+    @reservation.date = session[:current_res_date]
+    @reservation.party_size = session[:party_size]
+    @reservation.restaurant_id = session[:restaurant_id]
+    if @reservation.save
+      redirect_to new_search_restaurants_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -19,7 +28,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:date,:time,:party_size,:restaurant_id,:user_id)
+    params.require(:reservation).permit(:name, :email)
   end
 
 end
