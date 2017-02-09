@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  # root 'users#index'
-  resources :reservations
   get 'reservations/success'
+
+  root 'search_restaurants#new'
+  resources :reservations
+
   # resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :restaurants

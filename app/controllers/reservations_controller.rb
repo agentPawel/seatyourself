@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
+
   end
 
   def create
@@ -9,8 +10,11 @@ class ReservationsController < ApplicationController
     @reservation.date = session[:current_res_date]
     @reservation.party_size = session[:party_size]
     @reservation.restaurant_id = session[:restaurant_id]
+    session[:reservation_name] = params[:reservation][:name]
+    session[:reservation_email] = params[:reservation][:email]
+
     if @reservation.save
-      redirect_to new_search_restaurants_path
+      redirect_to reservations_success_path
     else
       render :new
     end
