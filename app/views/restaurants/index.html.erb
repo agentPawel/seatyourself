@@ -1,5 +1,5 @@
-<h1>Available restaurants</h1>
-
+<h1 class="available">Available Restaurants</h1>
+<div class="search_results">
 <h2>Reservation Req. Details </h2>
 Date: <%= session[:current_res_date] %> <br>
 Time:<%= session[:current_res_time] %><br>
@@ -10,6 +10,7 @@ Party Size:<%= session[:party_size] %><br>
 
 <% @valid_restaurants.each do |restaurant| %>
 Restaurant Name:<%= restaurant.name %> <br><br>
+<%= image_tag restaurant.url %>
 Restaurant Max Capacity:<%= restaurant.capacity %> <br><br>
 Restaurant Capacity Taken: <%= Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size) %> <br><br>
 Restaurant Capacity Left: <%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %> <br><br>
@@ -22,3 +23,4 @@ Restaurant Capacity Left: <%= (restaurant.capacity - Reservation.where(date: ses
 <br>
 <br>
 <% end %>
+</div>
