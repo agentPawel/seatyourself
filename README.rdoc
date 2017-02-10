@@ -27,6 +27,10 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+Removed from index.html.erb (res. controller) :
+Restaurant Max Capacity:<%= restaurant.capacity %> <br><br>
+Restaurant Capacity Taken: <%= Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size) %> <br><br>
+
 
 
 <!-- <%= form_tag @restaurant_search do |f| %>
