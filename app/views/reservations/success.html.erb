@@ -4,3 +4,8 @@
 has been confirmed for <%= session[:current_res_date] %> at <%= session[:current_res_time] %>:00.<br>
 <br>
 A confirmation has been sent to <%=session[:reservation_email]%>.</p>
+<br>
+<br>
+<nav class="nav_bar">
+<span class="nav_option"><%= link_to "Back to Search", new_search_restaurants_path %></span>
+</nav>
