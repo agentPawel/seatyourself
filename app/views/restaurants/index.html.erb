@@ -8,17 +8,22 @@
   </br>
   </br>
 
+  <ul>
   <% @valid_restaurants.each do |restaurant| %>
-  Restaurant Name:<%= restaurant.name %> <br><br>
-  <%= image_tag restaurant.url %>
-  Only <%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %> Seats Left, Book Soon! <br><br>
+  <li>Restaurant Name: <%= restaurant.name %> <br><br><li>
+  <li><%= image_tag restaurant.url %></li>
+  <li><%= (restaurant.capacity - Reservation.where(date: session[:current_res_date],
+  time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %>
+  Seats Left! <br><br> </li>
 
   <div class="button_bar">
-    <%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"  %>
+    <li><%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"  %><li>
   </div>
   <br>
   <br>
   <br>
   <br>
   <% end %>
+
+  <ul>
 </div>
