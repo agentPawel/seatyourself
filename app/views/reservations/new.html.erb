@@ -1,32 +1,35 @@
 <h1>Reservation Details</h1>
-
-Restaurant: <%= session[:restaurant_name] %> <br>
-Date: <%= session[:current_res_date] %> <br>
-Time: <%= session[:current_res_time] %>:00<br>
-Party Size: <%= pluralize(session[:party_size], 'person') %><br>
+<br><br>
+<span class="res_details">Restaurant: <%= session[:restaurant_name] %></span> <br><br>
+<span class="res_details">Date: <%= session[:current_res_date] %></span> <br><br>
+<span class="res_details">Time: <%= session[:current_res_time] %>:00</span><br><br>
+<span class="res_details">Party Size: <%= pluralize(session[:party_size], 'person') %></span><br>
 
 <%= form_for @reservation do |f| %>
   <% if @reservation.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
+      <br>
+      <h4>Reservation not confirmed because:</h4>
       <ul>
         <% @reservation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <br>
+
+          - <%= message %>
         <% end %>
       </ul>
     </div>
   <% end %>
-
- <div class="field">
-    <%= f.label :email %><br/>
+<br><br>
+ <div class="field" id="email_conf">
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
- <div class="field">
-    <%= f.label :name %><br/>
+ <div class="field" id="name_conf">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-
+<br>
  <div class="actions"><%= f.submit %></div>
 <% end %>
