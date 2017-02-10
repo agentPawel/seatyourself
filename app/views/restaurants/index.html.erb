@@ -9,7 +9,9 @@
   </br>
 
   <ul>
+
   <% @valid_restaurants.each do |restaurant| %>
+  <div class ="restaurant_result">
   <li>Restaurant Name: <%= restaurant.name %> <br><br><li>
   <li><%= image_tag restaurant.url %></li>
   <li><%= (restaurant.capacity - Reservation.where(date: session[:current_res_date],
@@ -18,6 +20,7 @@
 
   <div class="button_bar">
     <li><%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"  %><li>
+  </div>
   </div>
   <br>
   <br>

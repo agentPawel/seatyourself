@@ -16,11 +16,16 @@
 
 
 .button {
-  background-color: pink;
+  background-color: rgba(255,0,255,.5);
 }
 
 
 .img.resize{
     width:540px; /* you can use % */
     height: auto;
+}
+
+.restaurant_result {
+  background-color: rgba(0,0,255,0.4);
+  margin: 10px;
 }
