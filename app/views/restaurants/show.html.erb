@@ -1,6 +1,7 @@
 
 
-<h1>Make a reservation at <%=@restaurant.name%>! </h1>
+<section class="show">
+
 
 <% session[:restaurant_id] = @restaurant.id %>
 <% session[:restaurant_name] = @restaurant.name %>
@@ -8,21 +9,22 @@
 <% session[:capacity_left] = (@restaurant.capacity - Reservation.where(date: session[:current_res_date],
 time: session[:current_res_time], restaurant_id: @restaurant.id).sum(:party_size)) %>
 
-Name:
-<%= @restaurant.name %>
+<h1>Make a reservation at <%=@restaurant.name%>! </h1>
+<div class="show_restaurant">
+
+<div> <%= image_tag @restaurant.url %> </div>
+
+
+<div class="restaurant_name"> <%= @restaurant.name %> </div>
+<div class="restaurant_description"><%= @restaurant.description %> </div>
 <br>
-Location:
-<%= @restaurant.location %>
+<div> Location:<%= @restaurant.location %> </div>
 <br>
-Description:
-<%= @restaurant.description %>
+<div class="confirm"><%= link_to "Confirm", new_reservation_path %></div>
 <br>
 <br>
+<div class="links"><%= link_to "Back to results", :back %></div>
+<div class="links"><%= link_to "New reservation search", new_search_restaurants_path %></div>
 </div>
 
-<%= link_to "Confirm", new_reservation_path %>
-
-
-
-<%= link_to "Back to results", :back %>
-<%= link_to "New reservation search", new_search_restaurants_path %>
+</section>
