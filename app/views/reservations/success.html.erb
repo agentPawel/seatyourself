@@ -1,5 +1,6 @@
 <h1> Reservation Confirmed!</h1>
-
-<p> Congratulations <%=session[:reservation_name] %>, your reservation at <%= session[:restaurant_name] %>
-has been confirmed for <%= session[:current_res_date] %> at <%= session[:current_res_time] %>.<br>
-A confirmation has been sent to <%=session[:reservation_email]%></p>
+<br><br>
+<p class="success_text"> Congratulations <%=session[:reservation_name] %>, your reservation at <%= session[:restaurant_name] %>
+has been confirmed for <%= session[:current_res_date] %> at <%= session[:current_res_time] %>:00.<br>
+<br>
+A confirmation has been sent to <%=session[:reservation_email]%>.</p>
