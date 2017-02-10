@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20170210002152) do
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "time"
+    t.time     "time"
     t.date     "date"
     t.string   "email"
     t.integer  "restaurant_id"
