@@ -14,9 +14,10 @@ class RestaurantsController < ApplicationController
         redirect_to new_search_restaurants_path
         flash[:notice] = "Please pick a date not in the past!"
       end
-
-      puts params[:date]
-
+      if (params[:date].to_s == Time.now.to_s[0..9]) && (params[:time].to_i < Time.now.hour)
+        redirect_to new_search_restaurants_path
+        flash[:notice] = "Please pick a timeslot thats not in the past!"
+      end
 
       # Sum's # of reservations for a particular time and date
       @valid_restaurants = []

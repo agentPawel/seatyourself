@@ -26,7 +26,7 @@
 
   .confirm a {
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     background-color: red;
     text-decoration: none;
     padding: 15px;
@@ -34,13 +34,24 @@
     border: solid 3px white;
   }
 
+  .field {
+    padding: 10px 0;
+  }
+
   .links a {
       color: white;
-      font-size: 39px;
+      font-size: 18px;
+      padding: 10px;
   }
 
   .seats_remaining {
-    font-size: 29px;
+    font-size: 21px;
+    padding: 7px;
+  }
+
+
+  .success_text {
+    font-size: 30px;
   }
 
   .error_messages {
@@ -51,38 +62,55 @@
     text-align: center;
   }
 
+  img {
+    border-radius: 10px;
+  }
   .restaurant_list{
     text-align: center;
+    margin: 10px 25px;
+    padding-top: 25px;
+    background-color: rgba(197, 202, 226, 0.4);
   }
 
   .restaurant_list img {
-    width: 43%
+    width: 43%;
   }
 
   .restaurant_name {
-    color: #fbe846
+    color: darkred;
   }
 
   .restaurant_description {
-    color: #fbe846;
-    font-size: 32px;
+    color: darkred;
+    font-size: 27px;
   }
 
+  .reservation_details {
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+  }
 
   .button {
     color: white;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 30px;
   }
 
   .search {
     text-align: center;
+    padding: 10px 0;
   }
 
 
+
   .restaurant_name {
-    font-size: 70px;
-    font-weight: bold;
+    font-size: 40px;
+
+  }
+
+  #show_page {
+    color: white;
   }
 
   select#time {
@@ -92,9 +120,10 @@
   .available {
     text-align: center;
     color: white;
-    font-size: 58px;
+    font-size: 45px;
     font-weight: bold;
     margin-bottom: 15px;
+    padding-top: 25px;
   }
 
 
@@ -115,13 +144,15 @@ input {
  .navbar {
    background-color: white;
    text-align: center;
-   height: 120px;
+   height: 90px;
    position: relative;
-   font-size: 45px
+   font-size: 30px;
+   color: darkred;
+   padding-top: 8px;
  }
 
  .search_results {
-   font-size: 30px;
+   font-size: 18px;
  }
 
  .navbar img {
@@ -140,6 +171,7 @@ input {
  //   margin: 70px 90px;
  //   padding: 5%;
  //   text-align: center;
+ margin: 70px 45px;
  background: rgb(54, 25, 25);
  background: rgba(54, 25, 25, .5);
  }

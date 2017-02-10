@@ -1,3 +1,6 @@
+  <h1 class="available">Available Restaurants</h1>
+
+
 <div class="reservation_details">
   <h1>Reservation Details </h1>
   <div class="search_results">
@@ -7,19 +10,17 @@
   </div>
 </div>
 
-
   </br>
   </br>
-  <h1 class="available">Available Restaurants</h1>
 
   <% @valid_restaurants.each do |restaurant| %>
   <section class="restaurant_list">
   <div class="restaurant_details">
-    <div> <%= image_tag restaurant.url %> </div>
     <div class="restaurant_name"><%= restaurant.name %> </div>
+        <div> <%= image_tag restaurant.url %> </div>
     <div class="restaurant_description"><%= restaurant.description %> </div>
     <div><%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"%></div>
-    <div class="seats_remaining"><%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %> Seats Left </div> <br>
+    <div class="seats_remaining"><%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %> Seats Left! </div> <br>
   </div>
 </section>
 

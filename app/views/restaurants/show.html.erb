@@ -15,10 +15,9 @@ time: session[:current_res_time], restaurant_id: @restaurant.id).sum(:party_size
 <div> <%= image_tag @restaurant.url %> </div>
 
 
-<div class="restaurant_name"> <%= @restaurant.name %> </div>
-<div class="restaurant_description"><%= @restaurant.description %> </div>
+<div class="restaurant_name" id="show_page"> <%= @restaurant.name %> </div>
+<div class="restaurant_description" id="show_page"><%= @restaurant.description %> </div>
 <br>
-<div> Location:<%= @restaurant.location %> </div>
 <br>
 <div class="confirm"><%= link_to "Confirm", new_reservation_path %></div>
 <br>
