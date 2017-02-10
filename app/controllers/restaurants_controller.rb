@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
       session[:current_res_date] = params[:date].to_s
       #@date = params[:date].to_s
 
-      session[:current_res_time] = params[:time]
+      session[:current_res_time] = params[:time].to_i
       #time = params[:time].to_s
       #@time = time[0..1].to_i
       session[:party_size] = params[:party_size].to_i
@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
 
       if params[:date].to_s < Time.now.to_s[0..9]
         redirect_to new_search_restaurants_path
-        flash
+        flash[:notice] = "Please pick a date not in the past!"
       end
 
       puts params[:date]

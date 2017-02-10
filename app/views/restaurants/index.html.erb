@@ -2,8 +2,8 @@
 <div class="search_results">
   <h2>Reservation Req. Details </h2>
   Date: <%= session[:current_res_date] %> <br>
-  Time:<%= session[:current_res_time] %><br>
-  Party Size:<%= session[:party_size] %><br>
+  Time: <%= session[:current_res_time] %>:00<br>
+  Party Size: <%= pluralize(session[:party_size], 'person') %><br>
 
   </br>
   </br>
