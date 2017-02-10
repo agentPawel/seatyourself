@@ -1,10 +1,12 @@
-
-<h2>Reservation Req. Details </h2>
-<div class="search_results">
-  Date: <%= session[:current_res_date] %> <br>
-  Time: <%= session[:current_res_time] %>:00<br>
-  Party Size: <%= pluralize(session[:party_size], 'person') %><br>
+<div class="reservation_details">
+  <h1>Reservation Details </h1>
+  <div class="search_results">
+    Date: <%= session[:current_res_date] %> <br>
+    Time: <%= session[:current_res_time] %>:00<br>
+    Party Size: <%= pluralize(session[:party_size], 'person') %><br>
+  </div>
 </div>
+
 
   </br>
   </br>
@@ -17,9 +19,7 @@
     <div class="restaurant_name"><%= restaurant.name %> </div>
     <div class="restaurant_description"><%= restaurant.description %> </div>
     <div><%= link_to 'Make a reservation!',"/restaurants/#{restaurant.id}", class: "button"%></div>
-    <div>Restaurant Max Capacity:<%= restaurant.capacity %></div>
-    <div>Restaurant Capacity Taken: <%= Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size) %></div>
-    <div>Restaurant Capacity Left: <%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %></div> <br>
+    <div class="seats_remaining"><%= (restaurant.capacity - Reservation.where(date: session[:current_res_date], time: session[:current_res_time], restaurant_id: restaurant.id).sum(:party_size)) %> Seats Left </div> <br>
   </div>
 </section>
 

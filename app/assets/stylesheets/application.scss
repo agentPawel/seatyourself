@@ -20,6 +20,10 @@
     margin-bottom: 15px;
   }
 
+  .search a {
+    color: white;
+  }
+
   .confirm a {
     color: white;
     font-size: 50px;
@@ -33,6 +37,14 @@
   .links a {
       color: white;
       font-size: 39px;
+  }
+
+  .seats_remaining {
+    font-size: 29px;
+  }
+
+  .error_messages {
+    color: red;
   }
 
   .show {
@@ -109,7 +121,7 @@ input {
  }
 
  .search_results {
-   font-size: 38px;
+   font-size: 30px;
  }
 
  .navbar img {
@@ -130,6 +142,9 @@ input {
  //   text-align: center;
  background: rgb(54, 25, 25);
  background: rgba(54, 25, 25, .5);
+ }
+
+ .final_commit {
 
  }
 
