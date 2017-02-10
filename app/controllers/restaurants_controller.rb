@@ -10,6 +10,12 @@ class RestaurantsController < ApplicationController
       session[:party_size] = params[:party_size].to_i
       #@party_size = params[:party_size].to_i
 
+      if params[:date].to_s < Time.now.to_s[0..9]
+        redirect_to new_search_restaurants_path
+        flash
+      end
+
+      puts params[:date]
 
 
       # Sum's # of reservations for a particular time and date
