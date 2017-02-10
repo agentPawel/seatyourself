@@ -8,21 +8,20 @@
 <% session[:capacity_left] = (@restaurant.capacity - Reservation.where(date: session[:current_res_date],
 time: session[:current_res_time], restaurant_id: @restaurant.id).sum(:party_size)) %>
 
-Name:
-<%= @restaurant.name %>
-<br>
-Location:
-<%= @restaurant.location %>
-<br>
-Description:
-<%= @restaurant.description %>
 <br>
 <br>
+
+<h2>Reservation Details </h2>
+<br>
+<span class="res_details">Date: <%= session[:current_res_date] %></span> <br><br>
+<span class="res_details">Time: <%= session[:current_res_time] %>:00</span><br><br>
+<span class="res_details">Party Size: <%= pluralize(session[:party_size], 'person') %></span><br>
+<br>
+<br>
+
+<nav class="nav_bar">
+<span class="nav_option"><%= link_to "Confirm Reservation", new_reservation_path %></span>
+<span class="nav_option"><%= link_to "Back to results", :back %></span>
+<span class="nav_option"><%= link_to "New reservation search", new_search_restaurants_path %></span>
+</nav>
 </div>
-
-<%= link_to "Confirm", new_reservation_path %>
-
-
-
-<%= link_to "Back to results", :back %>
-<%= link_to "New reservation search", new_search_restaurants_path %>
