@@ -1,6 +1,8 @@
-<h1>Available restaurants</h1>
+<h1 class='available'>Available Restaurants</h1>
 
-<h2>Reservation Req. Details </h2>
+
+<div class='search_results'>
+<h2 class='res_details'>Reservation Req. Details </h2>
 Date: <%= session[:current_res_date] %> <br>
 Time:<%= session[:current_res_time] %><br>
 Party Size:<%= session[:party_size] %><br>
@@ -22,3 +24,4 @@ Restaurant Capacity Left: <%= (restaurant.capacity - Reservation.where(date: ses
 <br>
 <br>
 <% end %>
+</div>
